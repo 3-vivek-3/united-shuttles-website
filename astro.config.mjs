@@ -17,7 +17,7 @@ export default defineConfig({
         : "/",
     */
     
-    base: process.env.ASTRO_BASE ?? "/unitedshuttles/",
+    base: process.env.ASTRO_BASE ?? "/united-shuttles-website/",
 
     integrations: [sitemap()],
     vite: {
