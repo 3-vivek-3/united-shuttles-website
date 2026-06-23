@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { SITE_CONFIG } from "../config";
 import { getEntry, render } from "astro:content";
 
-const aboutPage = await getEntry("pages", "about");
+const aboutPage = await getEntry("pages", "membership");
 
 if (!aboutPage) {
     throw new Error("Missing content file: src/content/pages/about.md");

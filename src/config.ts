@@ -7,7 +7,7 @@
 export const SITE_CONFIG = {
   // Basic site information
   title: "DSBA United Shuttles",
-  description: "Website",
+  description: "Website is under construction",
   author: "DSBA United Shuttles",
   email: "unitedshuttles@gmail.com",
 
@@ -15,8 +15,8 @@ export const SITE_CONFIG = {
   // Remove or leave empty any platforms you don't use
   socialLinks: {
     github: "",
-    twitter: "amirdaraee",
-    linkedin: "amirdaraee",
+    twitter: "",
+    linkedin: "",
     youtube: "", // Leave empty if not used
   },
 
@@ -54,13 +54,16 @@ export const AUTHOR_INFO = {
   email: SITE_CONFIG.email,
   url: SITE_CONFIG.siteUrl,
   // You can add more structured data here
-  jobTitle: "Developer", // Optional
+  jobTitle: "", // Optional
   organization: "", // Optional
 };
 
 // Navigation menu items
 export const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  { href: "/badminton", label: "Badminton" },
+  { href: "/membership", label: "Membership" },
+  { href: "/events", label: "Events" },
+  { href: "/contact", label: "Contact" },
 ];

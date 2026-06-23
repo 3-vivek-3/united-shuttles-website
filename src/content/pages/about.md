@@ -1,0 +1,5 @@
+The Delft Student Badminton Association - United Shuttles Smashing Right (DSBA-USSR) was founded in the Summer of 2006.
+
+The association is formally recognized by the Technical University of Delft (TU Delft) and is part of the Delft Student Sport Federation (DSSF) in the Sportcentrum of TU Delft. The association is also registered in Kamer van Koophandel (KvK) as an independent organization. The official Statuten documents (Akte and Statuten) can be obtained upon request to the secretary of USSR (by email).
+
+The Delft student badminton association USSR aims at gathering the increasing number of badminton lovers in Delft, both Dutch and international. We organize tournaments and competitions; we hold social events and badminton learning activities/sessions; we reflect your opinions to the TU Delft Sports Center; and finally, we serve as the connection between you and other fellow badminton enthusiastics in Delft.

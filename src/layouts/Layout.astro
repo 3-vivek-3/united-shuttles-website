@@ -1,9 +1,11 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import { SITE_CONFIG } from '../config';
 import '../styles/global.css';
+
 
 interface Props {
   title: string;
@@ -31,7 +33,7 @@ const {
 ---
 
 <!doctype html>
-<html lang={SITE_CONFIG.language}>
+<html lang={SITE_CONFIG.language} >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,11 +52,10 @@ const {
     />
 
     <!-- Favicon -->
-    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} sizes="32x32" />
-    <link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon-32x32.png`} />
-    <link rel="icon" type="image/png" sizes="16x16" href={`${import.meta.env.BASE_URL}favicon-16x16.png`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
-    <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}images/logos/favicon.ico`} sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}images/logos/favicon.svg`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}images/logos/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}images/logos/site.webmanifest`} />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#ffffff" />
@@ -94,9 +95,10 @@ const {
     )}
 
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
-    <Header />
+    <Header transition:persist/>
     <main class="flex-grow w-full relative" role="main" aria-label="Main content">
       <slot />
     </main>
@@ -122,9 +124,9 @@ const {
     width: 100%;
     max-width: 7rem;
     height: 0.25rem;
-    background-color: #2c3e50;
+    background-color: #ff0000;
     border-radius: 1rem;
-    border-color: #2c3e50 !important;
+    border-color: #0080ff !important;
   }
   .dark .divider-custom .divider-custom-line {
     background-color: #cbd5e0;

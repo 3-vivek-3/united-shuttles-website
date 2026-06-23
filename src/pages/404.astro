@@ -10,18 +10,18 @@ import SEO from "../components/SEO.astro";
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO Meta Tags -->
-    <!--
     <SEO
       title="404 - Page Not Found"
       description="The page you're looking for doesn't exist."
       canonical={Astro.url.href}
       type="website"
     />
-    -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon.png`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}images/logos/favicon.ico`} sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}images/logos/favicon.svg`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}images/logos/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}images/logos/site.webmanifest`} />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#ffffff" />
