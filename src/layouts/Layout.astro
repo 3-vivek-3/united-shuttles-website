@@ -17,6 +17,7 @@ interface Props {
   tags?: string[];
   showCopyright?: boolean;
   compactFooter?: boolean;
+  centerInViewport?: boolean;
 }
 
 const {
@@ -28,7 +29,8 @@ const {
   publishedTime,
   tags,
   showCopyright = true,
-  compactFooter = false
+  compactFooter = false,
+  centerInViewport = false
 } = Astro.props;
 ---
 
@@ -97,12 +99,38 @@ const {
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body class="flex flex-col min-h-screen font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
-    <Header transition:persist/>
-    <main class="flex-grow w-full relative" role="main" aria-label="Main content">
+  <body
+    class:list={[
+      "font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200",
+      centerInViewport
+        ? "relative min-h-dvh"
+        : "flex flex-col min-h-screen",
+    ]}
+  >
+    {centerInViewport ? (
+      <div class="absolute inset-x-0 top-0 z-50">
+        <Header transition:persist />
+      </div>
+    ) : (
+      <Header transition:persist />
+    )}
+    <main
+      class:list={{
+        "min-h-dvh w-full grid place-items-center": centerInViewport,
+        "flex-grow w-full relative": !centerInViewport,
+      }}
+      role="main"
+      aria-label="Main content"
+    >
       <slot />
     </main>
-    <Footer showCopyright={showCopyright} compact={compactFooter} />
+    {centerInViewport ? (
+      <div class="absolute inset-x-0 bottom-0">
+        <Footer showCopyright={showCopyright} compact={compactFooter} />
+      </div>
+    ) : (
+      <Footer showCopyright={showCopyright} compact={compactFooter} />
+    )}
   </body>
 </html>
 

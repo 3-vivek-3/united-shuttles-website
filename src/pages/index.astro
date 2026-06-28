@@ -9,19 +9,18 @@ const base = import.meta.env.BASE_URL;
     title={`Home - ${SITE_CONFIG.title}`}
     showCopyright={false}
     compactFooter={true}
+    centerInViewport={true}
 >
-    <div class="fixed inset-0 z-0 flex items-center justify-center">
-        <main role="main" class="text-center px-4 sm:px-6 lg:px-8">
-            <div class="mb-8">
-                <h1
-                    class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4"
-                >
-                    Welcome to {SITE_CONFIG.title}
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-400">
-                    {SITE_CONFIG.description}
-                </p>
-            </div>
-        </main>
+    <div class="w-full text-center px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+            >
+                Welcome to {SITE_CONFIG.title}
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-400">
+                {SITE_CONFIG.description}
+            </p>
+        </div>
     </div>
 </Layout>
