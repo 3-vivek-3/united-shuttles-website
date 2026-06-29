@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
     // Update this with your production URL (can be overridden via ASTRO_SITE env var)
-    site: process.env.ASTRO_SITE ?? "https://3-vivek-3.github.io",
+    site: process.env.ASTRO_SITE ?? "https://unitedshuttles.nl",
 
     // Set base path when deploying to a subdirectory (e.g. GitHub Pages project site)
     // Can be overridden via ASTRO_BASE env var; always normalized to end with '/'
@@ -17,7 +17,7 @@ export default defineConfig({
         : "/",
     */
     
-    base: process.env.ASTRO_BASE ?? "/united-shuttles-website/",
+    base: process.env.ASTRO_BASE ?? "/",
 
     integrations: [sitemap()],
     vite: {
