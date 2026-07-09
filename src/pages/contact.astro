@@ -2,14 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import { SITE_CONFIG } from "../config";
 import { getEntry, render } from "astro:content";
+import Divider from '../components/Divider.astro';
 
-const aboutPage = await getEntry("pages", "contact");
+const page = await getEntry("pages", "contact");
 
-if (!aboutPage) {
+if (!page) {
     throw new Error("Missing content file: src/content/pages/about.md");
 }
 
-const { Content } = await render(aboutPage);
+const { Content } = await render(page);
 ---
 
 <Layout
@@ -21,97 +22,17 @@ const { Content } = await render(aboutPage);
         <h2
             class="text-3xl font-bold text-center uppercase text-gray-600 dark:text-gray-400 mb-6"
         >
-            About
+            Contact
         </h2>
 
-        <!-- Icon Divider -->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon">
-                <svg
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    width="1em"
-                    height="1em"
-                >
-                    <g>
-                        <g>
-                            <path
-                                d="M26.379,354.263c-35.172,35.173-35.172,92.203,0,127.376c35.175,35.174,92.202,35.175,127.377,0L26.379,354.263z"
-                            ></path>
-                        </g>
-                    </g>
-                    <g>
-                        <g>
-                            <rect
-                                x="109.005"
-                                y="292.065"
-                                transform="matrix(0.7071 -0.7071 0.7071 0.7071 -233.3356 200.9435)"
-                                width="33.775"
-                                height="180.135"></rect>
-                        </g>
-                    </g>
-                    <g>
-                        <g>
-                            <path
-                                d="M474.85,245.465c-26.535-26.535-42.457-10.615-68.991-37.148c-26.536-26.538-10.616-42.459-37.15-68.995
-        c-26.537-26.538-42.459-10.616-68.997-37.152c-26.537-26.537-10.616-42.459-37.154-68.998
-        C236.022,6.636,228.06,30.519,201.522,3.98L98.029,282.615l127.376,127.376L512,314.458
-        C485.464,287.923,501.385,272.001,474.85,245.465z"
-                            ></path>
-                        </g>
-                    </g>
-                </svg>
-            </div>
-            <div class="divider-custom-line"></div>
-        </div>
+        <Divider />
 
         <div
             class="flex flex-col items-center text-gray-600 dark:text-gray-400 mt-8"
         >
-            <article
-                class="markdown-content w-full text-gray-700 dark:text-gray-300 leading-relaxed"
-            >
+            <article class="prose dark:prose-invert">
                 <Content />
             </article>
         </div>
     </div>
 </Layout>
-
-<style is:global>
-  .markdown-content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .markdown-content h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: rgb(17 24 39);
-  }
-
-  .dark .markdown-content h3 {
-    color: rgb(243 244 246);
-  }
-
-  .markdown-content ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .markdown-content a {
-    color: rgb(37 99 235);
-    text-decoration: underline;
-  }
-
-  .dark .markdown-content a {
-    color: rgb(96 165 250);
-  }
-
-  .markdown-content code {
-    font-size: 0.875em;
-  }
-</style>
