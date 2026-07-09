@@ -45,6 +45,22 @@ const socialLinks = [
         icon: "fa-youtube-play",
         hoverColor: "hover:text-red-600 dark:hover:text-red-400",
     },
+    {
+        name: "Facebook",
+        url: SITE_CONFIG.socialLinks.facebook
+            ? `https://www.facebook.com/c/${SITE_CONFIG.socialLinks.facebook}`
+            : null,
+        icon: "fa-youtube-play",
+        hoverColor: "hover:text-red-600 dark:hover:text-red-400",
+    },
+    {
+        name: "Instagram",
+        url: SITE_CONFIG.socialLinks.instagram
+            ? `https://www.instagram.com/${SITE_CONFIG.socialLinks.instagram}`
+            : null,
+        icon: "fa-instagram",
+        hoverColor: "hover:text-red-600 dark:hover:text-red-400",
+    }
 ].filter((link) => link.url); // Only show configured social links
 ---
 

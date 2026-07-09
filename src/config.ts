@@ -7,7 +7,7 @@
 export const SITE_CONFIG = {
   // Basic site information
   title: "DSBA United Shuttles",
-  description: "Website is under construction",
+  description: "Our website is currently under development :)",
   author: "DSBA United Shuttles",
   email: "unitedshuttles@gmail.com",
 
@@ -17,7 +17,9 @@ export const SITE_CONFIG = {
     github: "",
     twitter: "",
     linkedin: "",
-    youtube: "", // Leave empty if not used
+    youtube: "",
+    facebook: "",
+    instagram: "unitedshuttles"
   },
 
   // Analytics
@@ -27,15 +29,15 @@ export const SITE_CONFIG = {
 
   // Locale settings
   language: "en",
-  locale: "en-US",
+  locale: "en-NL",
 
   // Site URL (used for canonical URLs and SEO)
   // Update this with your production URL
-  siteUrl: "https://amirdaraee.github.io/astro-pulsar",
+  siteUrl: "https://unitedshuttles.nl",
 
   // Default meta image for social sharing
   // Place your image in the public folder
-  defaultOgImage: "/default-og-image.jpg",
+  defaultOgImage: "/images/logos/og-image.png",
 
   // Posts per page for blog pagination
   postsPerPage: 10,
