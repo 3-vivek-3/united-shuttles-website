@@ -1,9 +1,9 @@
 export const SITE_CONFIG = {
     // Basic site information
     title: "DSBA United Shuttles",
-    description: "Official website of DSBA United Shuttles",
+    description: "Official website of Delft Student Badminton Association United Shuttles",
     author: "DSBA United Shuttles",
-    email: "unitedshuttles@gmail.com",
+    email: "board@unitedshuttles.nl",
 
     // Social media links
     // Remove or leave empty any platforms you don't use
@@ -21,10 +21,6 @@ export const SITE_CONFIG = {
     // Leave empty to disable analytics
     googleAnalyticsId: "",
 
-    // Locale settings
-    language: "en",
-    locale: "en-NL",
-
     // Site URL (used for canonical URLs and SEO)
     // Update this with your production URL
     siteUrl: "https://unitedshuttles.nl",
@@ -41,33 +37,8 @@ export const SITE_CONFIG = {
     },
 };
 
-// Author information for structured data
-export const AUTHOR_INFO = {
-    name: SITE_CONFIG.author,
-    email: SITE_CONFIG.email,
-    url: SITE_CONFIG.siteUrl,
-    // You can add more structured data here
-    jobTitle: "", // Optional
-    organization: "", // Optional
-};
-
-export const LANGUAGES = {
-    en: {
-        label: "English",
-        prefix: "",
-        locale: "en-NL",
-    },
-    nl: {
-        label: "Nederlands",
-        prefix: "nl",
-        locale: "nl-NL",
-    },
-};
-
-export type Language = keyof typeof LANGUAGES;
-
 // Navigation menu items
-export const NAV_ITEMS = {
+export const NAV_ITEMS: Record<string, { href: string; label: string }[]> = {
     en: [
         { href: "/", label: "Home" },
         { href: "/about", label: "About" },

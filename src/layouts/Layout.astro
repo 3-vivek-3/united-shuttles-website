@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
-import { LANGUAGES, SITE_CONFIG, type Language } from '../config';
+import { SITE_CONFIG } from '../config';
 import '../styles/global.css';
 import '../styles/prose.css';
 import '../styles/divider.css';
@@ -12,28 +12,28 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
-  type?: 'website' | 'article';
   author?: string;
   publishedTime?: Date;
   tags?: string[];
   showCopyright?: boolean;
   compactFooter?: boolean;
   centerInViewport?: boolean;
-  language?: Language;
+  language: string;
+  locale?: string
 }
 
 const {
   title,
   description = SITE_CONFIG.description,
   image,
-  type = 'website',
   author = SITE_CONFIG.author,
   publishedTime,
   tags,
   showCopyright = true,
   compactFooter = false,
   centerInViewport = false,
-  language
+  language,
+  locale = language == "en" ? "en-NL" : "nl-NL"
 } = Astro.props;
 ---
 
@@ -48,12 +48,9 @@ const {
     <SEO
       title={title}
       description={description}
-      canonical={Astro.url.href}
       image={image}
-      type={type}
       author={author}
-      publishedTime={publishedTime}
-      tags={tags}
+      locale={locale}
     />
 
     <!-- Favicon -->
