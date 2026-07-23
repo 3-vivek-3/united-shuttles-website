@@ -1,17 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { SITE_CONFIG } from "../config";
+import Layout from "../../layouts/Layout.astro";
+import { SITE_CONFIG } from "../../config";
 import { getEntry, render } from "astro:content";
-import Divider from "../components/Divider.astro";
+import Divider from "../../components/Divider.astro";
 
-const page = await getEntry("pages", "contact");
+const page = await getEntry("pages", "nl/contact");
 
 if (!page) {
     throw new Error("Missing content file");
 }
 
 const { Content } = await render(page);
-const LANGUAGE = "en";
+const LANGUAGE = "nl";
 const PAGE_TITLE = "Contact";
 ---
 

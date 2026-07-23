@@ -7,22 +7,25 @@ import Divider from "../components/Divider.astro";
 const page = await getEntry("pages", "about");
 
 if (!page) {
-    throw new Error("Missing content file: src/content/pages/about.md");
+    throw new Error("Missing content file");
 }
 
 const { Content } = await render(page);
+const LANGUAGE = "en";
+const PAGE_TITLE = "About";
 ---
 
 <Layout
-    title={`About - ${SITE_CONFIG.title}`}
+    title={`${PAGE_TITLE} - ${SITE_CONFIG.title}`}
     showCopyright={true}
     compactFooter={true}
+    language={LANGUAGE}
 >
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <h2
             class="text-3xl font-bold text-center uppercase text-gray-600 dark:text-gray-400 mb-6"
         >
-            About
+            {PAGE_TITLE}
         </h2>
 
         <Divider />

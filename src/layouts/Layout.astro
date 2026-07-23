@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
-import { SITE_CONFIG } from '../config';
+import { LANGUAGES, SITE_CONFIG, type Language } from '../config';
 import '../styles/global.css';
 import '../styles/prose.css';
 import '../styles/divider.css';
@@ -19,6 +19,7 @@ interface Props {
   showCopyright?: boolean;
   compactFooter?: boolean;
   centerInViewport?: boolean;
+  language?: Language;
 }
 
 const {
@@ -31,12 +32,13 @@ const {
   tags,
   showCopyright = true,
   compactFooter = false,
-  centerInViewport = false
+  centerInViewport = false,
+  language
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={SITE_CONFIG.language} >
+<html lang={language} >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -109,15 +111,13 @@ const {
     ]}
   >
     <div class:list={{ "absolute inset-x-0 top-0 z-50": centerInViewport }}>
-    <Header transition:persist />
+    <Header language={language} />
   </div>
     <main
       class:list={{
         "min-h-dvh w-full grid place-items-center": centerInViewport,
         "flex-grow w-full relative": !centerInViewport,
       }}
-      role="main"
-      aria-label="Main content"
     >
       <slot />
     </main>

@@ -1,11 +1,19 @@
 ---
 // Header component
 import DarkModeToggle from "./DarkModeToggle.astro";
-import { NAV_ITEMS } from "../config";
+import LanguageToggle from "./LanguageToggle.astro";
+import { NAV_ITEMS, type Language } from "../config";
 
 const base = import.meta.env.BASE_URL;
 
-const navLinks = NAV_ITEMS;
+interface Props {
+    language?: Language;
+}
+
+const { language = "en" } = Astro.props;
+const navLinks = NAV_ITEMS[language];
+
+const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
 ---
 
 <header
@@ -30,13 +38,14 @@ const navLinks = NAV_ITEMS;
                 {
                     navLinks.map((item) => (
                         <a
-                            href={`${base}${item.href.replace(/^\//, "")}`}
+                            href={withBase(item.href)}
                             class="nav-link"
                         >
                             {item.label}
                         </a>
                     ))
                 }
+                <LanguageToggle language={language} class="nav-link" />
                 <DarkModeToggle />
             </div>
 
@@ -79,6 +88,7 @@ const navLinks = NAV_ITEMS;
                             d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
+                <LanguageToggle language={language} class="nav-link" />
                 <DarkModeToggle />
             </div>
         </nav>
@@ -89,7 +99,7 @@ const navLinks = NAV_ITEMS;
                 {
                     navLinks.map((item) => (
                         <a
-                            href={`${base}${item.href.replace(/^\//, "")}`}
+                            href={withBase(item.href)}
                             class="block px-3 py-2 text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-400 font-medium uppercase tracking-wide transition-colors duration-200"
                         >
                             {item.label}
@@ -135,11 +145,11 @@ const navLinks = NAV_ITEMS;
 <style>
     @reference "../styles/global.css";
 
-    .nav-link {
+    :global(.nav-link) {
         @apply relative inline-block px-4 py-2 text-gray-900 dark:text-gray-100 font-medium uppercase tracking-wide no-underline transition-colors duration-200;
     }
 
-    .nav-link:hover {
+    :global(.nav-link:hover) {
         @apply text-gray-600 dark:text-gray-400;
     }
 </style>
