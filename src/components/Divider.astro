@@ -39,3 +39,30 @@
     </div>
     <div class="divider-custom-line"></div>
 </div>
+
+<style>
+    .divider-custom {
+        margin: 0rem 0 1.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .divider-custom .divider-custom-line {
+        width: 100%;
+        max-width: 7rem;
+        height: 0.25rem;
+        background-color: var(--colour-primary);
+    }
+
+    .divider-custom .divider-custom-line:first-child {
+        margin-right: 1rem;
+    }
+    .divider-custom .divider-custom-line:last-child {
+        margin-left: 1rem;
+    }
+    .divider-custom .divider-custom-icon {
+        color: var(--colour-primary);
+        font-size: 2rem;
+    }
+</style>
