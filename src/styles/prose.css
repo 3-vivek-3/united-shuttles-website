@@ -2,12 +2,12 @@
     max-width: 100%;
     line-height: 1.8;
     /* Default text colour */
-    color: #374151;
+    color: #5900ff;
 }
 
 .dark .prose {
     /* Default text colour */
-    color: #d1d5db;
+    color: #ff2ec0;
 }
 
 /* Headings */
@@ -17,7 +17,7 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .prose h1 {

@@ -6,7 +6,7 @@ import SEO from '../components/SEO.astro';
 import { SITE_CONFIG } from '../config';
 import '../styles/global.css';
 import '../styles/prose.css';
-import '../styles/divider.css';
+import '../styles/colours.css';
 
 interface Props {
   title: string;
@@ -99,7 +99,7 @@ const {
   </head>
   <body
     class:list={[
-      "font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200",
+      "font-sans bg-[var(--colour-primary-bg)] text-[var(--colour-primary)] transition-colors duration-200",
       centerInViewport
         ? "relative min-h-dvh"
         : "flex flex-col min-h-screen",

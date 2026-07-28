@@ -50,8 +50,8 @@ const socialLinks = [
         url: SITE_CONFIG.socialLinks.facebook
             ? `https://www.facebook.com/c/${SITE_CONFIG.socialLinks.facebook}`
             : null,
-        icon: "fa-youtube-play",
-        hoverColor: "hover:text-red-600 dark:hover:text-red-400",
+        icon: "fa-facebook",
+        hoverColor: "hover:text-blue-600 dark:hover:text-blue-400",
     },
     {
         name: "Instagram",
@@ -59,14 +59,14 @@ const socialLinks = [
             ? `https://www.instagram.com/${SITE_CONFIG.socialLinks.instagram}`
             : null,
         icon: "fa-instagram",
-        hoverColor: "hover:text-red-600 dark:hover:text-red-400",
-    }
+        hoverColor: "hover:text-fuchsia-600 dark:hover:text-fuchsia-400",
+    },
 ].filter((link) => link.url); // Only show configured social links
 ---
 
 <footer
     id="footer"
-    class={`flex flex-col text-center px-4 py-2 bg-gray-50 dark:bg-gray-800 transition-colors duration-200`}
+    class={`flex flex-col text-center px-4 py-2 bg-[var(--colour-secondary-bg)]  transition-colors duration-200`}
 >
     <!-- Social buttons -->
     {
@@ -79,7 +79,7 @@ const socialLinks = [
                                 href={link.url!}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class={`text-gray-700 ${link.hoverColor} dark:text-gray-300 transition-colors duration-200`}
+                                class={`text-[var(--colour-secondary)] ${link.hoverColor} transition-colors duration-200`}
                                 title={link.name}
                                 aria-label={link.name}
                             >
@@ -100,7 +100,7 @@ const socialLinks = [
     {
         showCopyright && (
             //<hr class="my-6 border-gray-300 dark:border-gray-700 w-full max-w-md mx-auto" />
-            <div class="text-gray-600 dark:text-gray-400 text-sm">
+            <div class="text-[var(--colour-secondary)] transition-colors duration-200 text-sm">
                 Copyright © {SITE_CONFIG.author} {currentYear}
             </div>
         )

@@ -17,7 +17,7 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
 ---
 
 <header
-    class="bg-white dark:bg-gray-900 w-full py-2 transition-colors duration-200 relative z-50"
+    class="bg-[var(--colour-primary-bg)] w-full py-2 transition-colors duration-200 relative z-50"
 >
     <div class="w-full px-2">
         <nav
@@ -25,12 +25,8 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
             aria-label="Main navigation"
         >
             <!-- Logo -->
-            <a href={base} class="flex-shrink-0">
-                <img
-                    src={`${base}images/logos/favicon.svg`}
-                    alt="United Shuttles DSBA logo"
-                    class="h-35 w-auto brightness-0 dark:brightness-100 transition duration-200"
-                />
+            <a href={base} class="group flex-shrink-0 focus:outline-none">
+                <span class="block h-35 w-35 bg-[var(--colour-primary)] group-hover:bg-[var(--colour-primary-hover)] transition-colors duration-200 [mask-image:url('/images/logos/favicon.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]" />
             </a>
 
             <!-- Desktop menu and dark mode toggle -->
@@ -53,7 +49,7 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
             <div class="md:hidden flex items-center space-x-2 -translate-y-6">
                 <button
                     type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:focus:ring-gray-400 transition-colors duration-200"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none transition-colors duration-200"
                     id="mobile-menu-button"
                     aria-expanded="false"
                     aria-controls="mobile-menu"
@@ -100,7 +96,7 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
                     navLinks.map((item) => (
                         <a
                             href={withBase(item.href)}
-                            class="block px-3 py-2 text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-400 font-medium uppercase tracking-wide transition-colors duration-200"
+                            class="block px-3 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide transition-colors duration-200"
                         >
                             {item.label}
                         </a>
@@ -146,10 +142,6 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
     @reference "../styles/global.css";
 
     :global(.nav-link) {
-        @apply relative inline-block px-4 py-2 text-gray-900 dark:text-gray-100 font-medium uppercase tracking-wide no-underline transition-colors duration-200;
-    }
-
-    :global(.nav-link:hover) {
-        @apply text-gray-600 dark:text-gray-400;
+        @apply relative inline-block px-4 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide no-underline transition-colors duration-200;
     }
 </style>

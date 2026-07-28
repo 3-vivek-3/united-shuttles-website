@@ -21,21 +21,17 @@ const PAGE_TITLE = "Evenementen";
     compactFooter={true}
     language={LANGUAGE}
 >
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <h1
-            class="text-3xl font-bold text-center uppercase text-gray-600 dark:text-gray-400 mb-6"
-        >
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <article class="prose">
+        <h1 class="text-center uppercase">
             {PAGE_TITLE}
         </h1>
 
         <Divider />
 
-        <div
-            class="flex flex-col items-center text-gray-600 dark:text-gray-400 mt-8"
-        >
-            <article class="prose dark:prose-invert">
-                <Content />
-            </article>
+        <div class="mt-4">
+            <Content />
         </div>
+    </article>
     </div>
 </Layout>
