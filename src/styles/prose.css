@@ -2,12 +2,12 @@
     max-width: 100%;
     line-height: 1.8;
     /* Default text colour */
-    color: #5900ff;
+    color: var(--colour-body-text);
 }
 
 .dark .prose {
     /* Default text colour */
-    color: #ff2ec0;
+    color: var(--colour-body-text);
 }
 
 /* Headings */
@@ -22,6 +22,7 @@
 
 .prose h1 {
     font-size: 2rem;
+    color: var(--colour-primary);
 }
 
 .prose h2 {
@@ -39,16 +40,21 @@
 
 /* Links */
 .prose a {
-    color: #007bff;
+    color: var(--colour-body-hyperlink);
     text-decoration: none;
 }
 
 .dark .prose a {
-    color: #60a5fa;
+    color: var(--colour-body-hyperlink);
 }
 
 .prose a:hover {
+    color: var(--colour-body-hyperlink-hover);
     text-decoration: underline;
+}
+
+.dark .prose a:hover {
+    color: var(--colour-body-hyperlink-hover);
 }
 
 /* Code blocks */
