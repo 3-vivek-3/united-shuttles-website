@@ -4,6 +4,7 @@
 
 @layer base {
     html {
-        scrollbar-gutter: stable;
+        scrollbar-gutter: auto;
+        overflow-y: scroll;
     }
 }
