@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-    html {
-        scrollbar-gutter: auto;
-        overflow-y: scroll;
-    }
+	html {
+		scrollbar-gutter: auto;
+		overflow-y: scroll;
+	}
 }

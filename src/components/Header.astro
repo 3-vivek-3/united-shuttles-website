@@ -7,7 +7,7 @@ import { NAV_ITEMS } from "../config";
 const base = import.meta.env.BASE_URL;
 
 interface Props {
-    language?: string;
+	language?: string;
 }
 
 const { language = "en" } = Astro.props;
@@ -17,131 +17,124 @@ const withBase = (href: string) => `${base}${href.replace(/^\//, "")}`;
 ---
 
 <header
-    class="bg-[var(--colour-primary-bg)] w-full py-2 transition-colors duration-200 relative z-50"
->
-    <div class="w-full px-2">
-        <nav
-            class="flex items-center justify-between"
-            aria-label="Main navigation"
-        >
-            <!-- Logo -->
-            <a href={base} class="group flex-shrink-0 focus:outline-none">
-                <span class="block h-35 w-35 bg-[var(--colour-primary)] group-hover:bg-[var(--colour-primary-hover)] transition-colors duration-200 [mask-image:url('/images/logos/favicon.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]" />
-            </a>
+	class="bg-[var(--colour-primary-bg)] w-full py-2 transition-colors duration-200 relative z-50">
+	<div class="w-full px-2">
+		<nav
+			class="flex items-center justify-between"
+			aria-label="Main navigation">
+			<!-- Logo -->
+			<a href={base} class="group flex-shrink-0 focus:outline-none">
+				<span
+					class="block h-35 w-35 bg-[var(--colour-primary)] group-hover:bg-[var(--colour-primary-hover)] transition-colors duration-200 [mask-image:url('/images/logos/favicon.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"
+				></span>
+			</a>
 
-            <!-- Desktop menu and dark mode toggle -->
-            <div class="hidden md:flex md:items-center gap-4 -translate-y-6">
-                {
-                    navLinks.map((item) => (
-                        <a
-                            href={withBase(item.href)}
-                            class="nav-link"
-                        >
-                            {item.label}
-                        </a>
-                    ))
-                }
-                <LanguageToggle language={language} class="nav-link" />
-                <DarkModeToggle />
-            </div>
+			<!-- Desktop menu and dark mode toggle -->
+			<div class="hidden md:flex md:items-center gap-4 -translate-y-6">
+				{
+					navLinks.map((item) => (
+						<a href={withBase(item.href)} class="nav-link">
+							{item.label}
+						</a>
+					))
+				}
+				<LanguageToggle language={language} class="nav-link" />
+				<DarkModeToggle />
+			</div>
 
-            <!-- Mobile menu button and dark mode toggle -->
-            <div class="md:hidden flex items-center space-x-2 -translate-y-6">
-                <button
-                    type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none transition-colors duration-200"
-                    id="mobile-menu-button"
-                    aria-expanded="false"
-                    aria-controls="mobile-menu"
-                >
-                    <span class="sr-only">Open main menu</span>
-                    <!-- Hamburger icon -->
-                    <svg
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        id="menu-icon"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <!-- Close icon (hidden by default) -->
-                    <svg
-                        class="h-6 w-6 hidden"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        id="close-icon"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                <LanguageToggle language={language} class="nav-link" />
-                <DarkModeToggle />
-            </div>
-        </nav>
+			<!-- Mobile menu button and dark mode toggle -->
+			<div class="md:hidden flex items-center space-x-2 -translate-y-6">
+				<button
+					type="button"
+					class="inline-flex items-center justify-center p-2 rounded-md text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none transition-colors duration-200"
+					id="mobile-menu-button"
+					aria-expanded="false"
+					aria-controls="mobile-menu">
+					<span class="sr-only">Open main menu</span>
+					<!-- Hamburger icon -->
+					<svg
+						class="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						id="menu-icon">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+					<!-- Close icon (hidden by default) -->
+					<svg
+						class="h-6 w-6 hidden"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						id="close-icon">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+				<LanguageToggle language={language} class="nav-link" />
+				<DarkModeToggle />
+			</div>
+		</nav>
 
-        <!-- Mobile menu (hidden by default) -->
-        <div class="hidden md:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 text-center">
-                {
-                    navLinks.map((item) => (
-                        <a
-                            href={withBase(item.href)}
-                            class="block px-3 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide transition-colors duration-200"
-                        >
-                            {item.label}
-                        </a>
-                    ))
-                }
-            </div>
-        </div>
-    </div>
+		<!-- Mobile menu (hidden by default) -->
+		<div class="hidden md:hidden" id="mobile-menu">
+			<div class="px-2 pt-2 pb-3 space-y-1 text-center">
+				{
+					navLinks.map((item) => (
+						<a
+							href={withBase(item.href)}
+							class="block px-3 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide transition-colors duration-200">
+							{item.label}
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
 </header>
 
 <script>
-    function initMobileMenu() {
-        const menuButton = document.getElementById("mobile-menu-button");
+	function initMobileMenu() {
+		const menuButton = document.getElementById("mobile-menu-button");
 
-        if (
-            !(menuButton instanceof HTMLElement) ||
-            menuButton.dataset.bound === "true"
-        ) {
-            return;
-        }
+		if (
+			!(menuButton instanceof HTMLElement) ||
+			menuButton.dataset.bound === "true"
+		) {
+			return;
+		}
 
-        menuButton.dataset.bound = "true";
-        menuButton.addEventListener("click", () => {
-            const mobileMenu = document.getElementById("mobile-menu");
-            const menuIcon = document.getElementById("menu-icon");
-            const closeIcon = document.getElementById("close-icon");
-            const isExpanded =
-                menuButton.getAttribute("aria-expanded") === "true";
+		menuButton.dataset.bound = "true";
+		menuButton.addEventListener("click", () => {
+			const mobileMenu = document.getElementById("mobile-menu");
+			const menuIcon = document.getElementById("menu-icon");
+			const closeIcon = document.getElementById("close-icon");
+			const isExpanded =
+				menuButton.getAttribute("aria-expanded") === "true";
 
-            menuButton.setAttribute("aria-expanded", (!isExpanded).toString());
-            mobileMenu?.classList.toggle("hidden");
-            menuIcon?.classList.toggle("hidden");
-            closeIcon?.classList.toggle("hidden");
-        });
-    }
+			menuButton.setAttribute("aria-expanded", (!isExpanded).toString());
+			mobileMenu?.classList.toggle("hidden");
+			menuIcon?.classList.toggle("hidden");
+			closeIcon?.classList.toggle("hidden");
+		});
+	}
 
-    initMobileMenu();
-    document.addEventListener("astro:page-load", initMobileMenu);
-    document.addEventListener("astro:after-swap", initMobileMenu);
+	initMobileMenu();
+	document.addEventListener("astro:page-load", initMobileMenu);
+	document.addEventListener("astro:after-swap", initMobileMenu);
 </script>
 
 <style>
-    @reference "../styles/global.css";
+	@reference "../styles/global.css";
 
-    :global(.nav-link) {
-        @apply relative inline-block px-4 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide no-underline transition-colors duration-200;
-    }
+	:global(.nav-link) {
+		@apply relative inline-block px-4 py-2 text-[var(--colour-primary)] hover:text-[var(--colour-primary-hover)] focus:outline-none font-medium uppercase tracking-wide no-underline transition-colors duration-200;
+	}
 </style>

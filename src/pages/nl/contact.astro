@@ -7,7 +7,7 @@ import Divider from "../../components/Divider.astro";
 const page = await getEntry("pages", "nl/contact");
 
 if (!page) {
-    throw new Error("Missing content file");
+	throw new Error("Missing content file");
 }
 
 const { Content } = await render(page);
@@ -16,22 +16,21 @@ const PAGE_TITLE = "Contact";
 ---
 
 <Layout
-    title={`${PAGE_TITLE} - ${SITE_CONFIG.title}`}
-    showCopyright={true}
-    compactFooter={true}
-    language={LANGUAGE}
->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <article class="prose">
-        <h1 class="text-center uppercase">
-            {PAGE_TITLE}
-        </h1>
+	title={`${PAGE_TITLE} - ${SITE_CONFIG.title}`}
+	showCopyright={true}
+	compactFooter={true}
+	language={LANGUAGE}>
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+		<article class="prose">
+			<h1 class="text-center uppercase">
+				{PAGE_TITLE}
+			</h1>
 
-        <Divider />
+			<Divider />
 
-        <div class="mt-4">
-            <Content />
-        </div>
-    </article>
-    </div>
+			<div class="mt-4">
+				<Content />
+			</div>
+		</article>
+	</div>
 </Layout>

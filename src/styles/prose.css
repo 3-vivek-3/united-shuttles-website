@@ -1,13 +1,13 @@
 .prose {
-    max-width: 100%;
-    line-height: 1.8;
-    /* Default text colour */
-    color: var(--colour-body-text);
+	max-width: 100%;
+	line-height: 1.8;
+	/* Default text colour */
+	color: var(--colour-body-text);
 }
 
 .dark .prose {
-    /* Default text colour */
-    color: var(--colour-body-text);
+	/* Default text colour */
+	color: var(--colour-body-text);
 }
 
 /* Headings */
@@ -17,136 +17,136 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 .prose h1 {
-    font-size: 2rem;
-    color: var(--colour-primary);
+	font-size: 2rem;
+	color: var(--colour-primary);
 }
 
 .prose h2 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .prose h3 {
-    font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 /* Paragraphs */
 .prose p {
-    margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 /* Links */
 .prose a {
-    color: var(--colour-body-hyperlink);
-    text-decoration: none;
+	color: var(--colour-body-hyperlink);
+	text-decoration: none;
 }
 
 .dark .prose a {
-    color: var(--colour-body-hyperlink);
+	color: var(--colour-body-hyperlink);
 }
 
 .prose a:hover {
-    color: var(--colour-body-hyperlink-hover);
-    text-decoration: underline;
+	color: var(--colour-body-hyperlink-hover);
+	text-decoration: underline;
 }
 
 .dark .prose a:hover {
-    color: var(--colour-body-hyperlink-hover);
+	color: var(--colour-body-hyperlink-hover);
 }
 
 /* Code blocks */
 .prose pre {
-    background-color: #2d2d2d;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
+	background-color: #2d2d2d;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	overflow-x: auto;
+	margin: 1.5rem 0;
 }
 
 .dark .prose pre {
-    background-color: #1f2937;
+	background-color: #1f2937;
 }
 
 /* Inline code */
 .prose code {
-    background-color: #f4f4f4;
-    color: #1f2937;
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.25rem;
-    font-size: 0.9em;
+	background-color: #f4f4f4;
+	color: #1f2937;
+	padding: 0.2rem 0.4rem;
+	border-radius: 0.25rem;
+	font-size: 0.9em;
 }
 
 .dark .prose code {
-    background-color: #374151;
-    color: #e5e7eb;
+	background-color: #374151;
+	color: #e5e7eb;
 }
 
 /* Code inside <pre> */
 .prose pre code {
-    background-color: transparent;
-    padding: 0;
-    color: #f8f8f2;
+	background-color: transparent;
+	padding: 0;
+	color: #f8f8f2;
 }
 
 /* Lists */
 .prose ul,
 .prose ol {
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
+	margin-bottom: 1.5rem;
+	padding-left: 2rem;
 }
 
 .prose li {
-    margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 /* Block quotes */
 .prose blockquote {
-    border-left: 4px solid #ddd;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: #666;
-    font-style: italic;
+	border-left: 4px solid #ddd;
+	padding-left: 1rem;
+	margin: 1.5rem 0;
+	color: #666;
+	font-style: italic;
 }
 
 .dark .prose blockquote {
-    border-left-color: #4b5563;
-    color: #9ca3af;
+	border-left-color: #4b5563;
+	color: #9ca3af;
 }
 
 /* Images */
 .prose img {
-    max-width: 100%;
-    height: auto;
-    margin: 1.5rem 0;
+	max-width: 100%;
+	height: auto;
+	margin: 1.5rem 0;
 }
 
- /* Tables */
+/* Tables */
 .prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5rem 0;
 }
 
 .prose th,
 .prose td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: left;
+	border: 1px solid #ddd;
+	padding: 0.75rem;
+	text-align: left;
 }
 
 .dark .prose th,
 .dark .prose td {
-    border-color: #4b5563;
+	border-color: #4b5563;
 }
 
 .prose th {
-    background-color: #f4f4f4;
-    font-weight: 600;
+	background-color: #f4f4f4;
+	font-weight: 600;
 }
 
 .dark .prose th {
-    background-color: #374151;
+	background-color: #374151;
 }

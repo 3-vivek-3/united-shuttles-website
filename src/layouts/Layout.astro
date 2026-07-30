@@ -1,123 +1,114 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import SEO from '../components/SEO.astro';
-import { SITE_CONFIG } from '../config';
-import '../styles/global.css';
-import '../styles/prose.css';
-import '../styles/colours.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SEO from "../components/SEO.astro";
+import { SITE_CONFIG } from "../config";
+import "../styles/global.css";
+import "../styles/prose.css";
+import "../styles/colours.css";
 
 interface Props {
-  title: string;
-  description?: string;
-  image?: string;
-  author?: string;
-  publishedTime?: Date;
-  tags?: string[];
-  showCopyright?: boolean;
-  compactFooter?: boolean;
-  centerInViewport?: boolean;
-  language: string;
-  locale?: string
+	title: string;
+	author?: string;
+	showCopyright?: boolean;
+	compactFooter?: boolean;
+	centerInViewport?: boolean;
+	language: string;
+	locale?: string;
 }
 
 const {
-  title,
-  description = SITE_CONFIG.description,
-  image,
-  author = SITE_CONFIG.author,
-  showCopyright = true,
-  compactFooter = false,
-  centerInViewport = false,
-  language,
-  locale = language == "en" ? "en-NL" : "nl-NL"
+	title,
+	author = SITE_CONFIG.author,
+	showCopyright = true,
+	compactFooter = false,
+	centerInViewport = false,
+	language,
+	locale = language == "en" ? "en-NL" : "nl-NL",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={language} >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
+<html lang={language}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
 
-    <!-- SEO Meta Tags -->
-    <SEO
-      title={title}
-      description={description}
-      image={image}
-      author={author}
-      locale={locale}
-    />
+		<!-- SEO Meta Tags -->
+		<SEO title={title} author={author} locale={locale} />
 
-    <!-- Favicon -->
-    <link rel="icon" href={`${import.meta.env.BASE_URL}images/logos/favicon.ico`} sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}images/logos/favicon.svg`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}images/logos/apple-touch-icon.png`} />
-    <link rel="manifest" href={`${import.meta.env.BASE_URL}images/logos/site.webmanifest`} />
+		<!-- Favicon -->
+		<link
+			rel="icon"
+			href={`${import.meta.env.BASE_URL}images/logos/favicon.ico`}
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href={`${import.meta.env.BASE_URL}images/logos/favicon.svg`}
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href={`${import.meta.env.BASE_URL}images/logos/apple-touch-icon.png`}
+		/>
+		<link
+			rel="manifest"
+			href={`${import.meta.env.BASE_URL}images/logos/site.webmanifest`}
+		/>
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
+		<!-- Theme Color -->
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
+		<!-- Preconnect to external domains -->
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
 
-    <!-- Dark mode initialization script - prevents flash -->
-    <script is:inline>
-      // Initialize theme before page renders to prevent flash
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
+		<!-- Dark mode initialization script - prevents flash -->
+		<script is:inline>
+			// Initialize theme before page renders to prevent flash
+			(function () {
+				const savedTheme = localStorage.getItem("theme");
 
-        // Default to dark mode unless explicitly set to light
-        if (savedTheme !== 'light') {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
+				// Default to dark mode unless explicitly set to light
+				if (savedTheme !== "light") {
+					document.documentElement.classList.add("dark");
+				}
+			})();
+		</script>
 
-    <!-- Google Analytics -->
-    {SITE_CONFIG.googleAnalyticsId && SITE_CONFIG.features.analytics && (
-      <>
-        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE_CONFIG.googleAnalyticsId}`}></script>
-        <script is:inline define:vars={{ gaId: SITE_CONFIG.googleAnalyticsId }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', gaId);
-        </script>
-      </>
-    )}
-
-    <title>{title}</title>
-    <ClientRouter />
-  </head>
-  <body
-    class:list={[
-      "font-sans bg-[var(--colour-primary-bg)] text-[var(--colour-primary)] transition-colors duration-200",
-      centerInViewport
-        ? "relative min-h-dvh"
-        : "flex flex-col min-h-screen",
-    ]}
-  >
-    <div class:list={{ "absolute inset-x-0 top-0 z-50": centerInViewport }}>
-    <Header language={language} />
-  </div>
-    <main
-      class:list={{
-        "min-h-dvh w-full grid place-items-center": centerInViewport,
-        "flex-grow w-full relative": !centerInViewport,
-      }}
-    >
-      <slot />
-    </main>
-    <div class:list={{ "absolute inset-x-0 bottom-0": centerInViewport }}>
-        <Footer showCopyright={showCopyright} compact={compactFooter} />
-    </div>
-  </body>
+		<title>{title}</title>
+		<ClientRouter />
+	</head>
+	<body
+		class:list={[
+			"font-sans bg-[var(--colour-primary-bg)] text-[var(--colour-primary)] transition-colors duration-200",
+			centerInViewport
+				? "relative min-h-dvh"
+				: "flex flex-col min-h-screen",
+		]}>
+		<div class:list={{ "absolute inset-x-0 top-0 z-50": centerInViewport }}>
+			<Header language={language} />
+		</div>
+		<main
+			class:list={{
+				"min-h-dvh w-full grid place-items-center": centerInViewport,
+				"flex-grow w-full relative": !centerInViewport,
+			}}>
+			<slot />
+		</main>
+		<div class:list={{ "absolute inset-x-0 bottom-0": centerInViewport }}>
+			<Footer showCopyright={showCopyright} compact={compactFooter} />
+		</div>
+	</body>
 </html>
