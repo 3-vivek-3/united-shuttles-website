@@ -10,7 +10,6 @@ import "../styles/colours.css";
 
 interface Props {
 	title: string;
-	author?: string;
 	showCopyright?: boolean;
 	compactFooter?: boolean;
 	centerInViewport?: boolean;
@@ -20,7 +19,6 @@ interface Props {
 
 const {
 	title,
-	author = SITE_CONFIG.author,
 	showCopyright = true,
 	compactFooter = false,
 	centerInViewport = false,
@@ -37,7 +35,7 @@ const {
 		<meta name="generator" content={Astro.generator} />
 
 		<!-- SEO Meta Tags -->
-		<SEO title={title} author={author} locale={locale} />
+		<SEO title={title} locale={locale} />
 
 		<!-- Favicon -->
 		<link

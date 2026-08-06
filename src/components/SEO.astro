@@ -4,7 +4,7 @@ import { SITE_CONFIG } from "../config";
 export interface SEOProps {
 	title: string;
 	description: string;
-	canonical?: URL | string;
+	canonical?: URL;
 	image?: string;
 	imageAlt?: string;
 	author?: string;
@@ -28,17 +28,32 @@ const siteName = SITE_CONFIG.title;
 const twitterHandle = SITE_CONFIG.socialLinks.twitter
 	? `@${SITE_CONFIG.socialLinks.twitter}`
 	: "";
-const canonicalUrl = canonical instanceof URL ? canonical.href : canonical;
 
-// base url = "/"
-const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const removeTrailingSlash = (href: URL) => {
+	const url = new URL(href.href);
+	url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+	return url.href;
+};
+
+const canonicalUrl = removeTrailingSlash(canonical);
+
+const currentPath = Astro.url.pathname;
 const englishPath = currentPath.replace(/^\/nl(?=\/|$)/, "") || "/";
 const dutchPath = englishPath === "/" ? "/nl" : `/nl${englishPath}`;
 
 const hreflangLinks = [
-	{ hreflang: "en-NL", href: new URL(englishPath, Astro.site).href },
-	{ hreflang: "nl-NL", href: new URL(dutchPath, Astro.site).href },
-	{ hreflang: "x-default", href: new URL(englishPath, Astro.site).href },
+	{
+		hreflang: "en-NL",
+		href: removeTrailingSlash(new URL(englishPath, Astro.site)),
+	},
+	{
+		hreflang: "nl-NL",
+		href: removeTrailingSlash(new URL(dutchPath, Astro.site)),
+	},
+	{
+		hreflang: "x-default",
+		href: removeTrailingSlash(new URL(englishPath, Astro.site)),
+	},
 ];
 ---
 
