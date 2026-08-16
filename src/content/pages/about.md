@@ -1,4 +1,4 @@
-/images/logos/about-team-2024.jpg
+![United Shos/about-team-2024.jpg
 
 # About United Shuttles
 
