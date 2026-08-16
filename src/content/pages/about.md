@@ -1,3 +1,7 @@
+/images/logos/about-team-2024.jpg
+
+# About United Shuttles
+
 The Delft Student Badminton Association - United Shuttles Smashing Right (DSBA-USSR) was founded in the Summer of 2006.
 
 The association is formally recognized by the Technical University of Delft (TU Delft) and is part of the Delft Student Sport Federation (DSSF) in the Sportcentrum of TU Delft. The association is also registered in Kamer van Koophandel (KvK) as an independent organization. The official Statuten documents (Akte and Statuten) can be obtained upon request to the secretary of USSR (by email).
