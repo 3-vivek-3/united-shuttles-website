@@ -6,6 +6,6 @@
 
 ## Individual Contacts
 
-* **Competition Director:**
-* **Male Trust Person:**
-* **Female Trust Person:**
+* **Competition Director:** competition@unitedshuttles.nl
+* **Male Trust Person:** - 
+* **Female Trust Person:** - 

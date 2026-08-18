@@ -1,11 +1,11 @@
-## Club Information
+## Clubinformatie
 
-* **Club Name:** Delft Student Badminton Association United Shuttles
-* **Email:** board@unitedshuttles.nl
-* **Address:** X Sports Centre, Mekelweg 8, 2628CD, Delft 
+* **Clubnaam:** Delft Student Badminton Association United Shuttles
+* **E-mail:** board@unitedshuttles.nl
+* **Adres:** Sportcentrum X, Mekelweg 8, 2628CD, Delft
 
-## Individual Contacts
+## Contactpersonen
 
-* **Competition Director:**
-* **Male Trust Person:**
-* **Female Trust Person:**
+* **Wedstrijdleider:** competition@unitedshuttles.nl
+* **Mannelijke vertrouweling:** - 
+* **Vrouwelijke vertrouweling:** - 
